@@ -1,7 +1,9 @@
 {
-    "name": "wandersonwhcr/rest-romans",
-    "description": "The Most Unuseful Web Service to Convert Roman Numerals to Arabic and Vice Versa",
-    "type": "project",
-    "license": "MIT",
-    "require": {}
+  "name": "wandersonwhcr/rest-romans",
+  "description": "The Most Unuseful Web Service to Convert Roman Numerals to Arabic and Vice Versa",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "slim/slim": "4.7.*"
+  }
 }
