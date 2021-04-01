@@ -36,4 +36,4 @@ services:
     ports:
     - "9000"
     volumes:
-    - ".:/var/www/html:ro"
+    - ".:/var/www/html"
