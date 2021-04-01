@@ -2,10 +2,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Slim\Factory\AppFactory;
-
-$app = AppFactory::create();
-
-$app->addErrorMiddleware(true, true, true);
+$app = require __DIR__ . '/../app.php';
 
 $app->run();
