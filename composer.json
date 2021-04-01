@@ -11,7 +11,9 @@
     "php-parallel-lint/php-parallel-lint": "1.2.*",
     "phpmd/phpmd": "2.9.*",
     "phpunit/phpunit": "9.5.*",
-    "sebastian/phpcpd": "6.0.*"
+    "sebastian/phpcpd": "6.0.*",
+    "slevomat/coding-standard": "6.4.*",
+    "squizlabs/php_codesniffer": "3.5.*"
   },
   "autoload": {
     "psr-4": {
@@ -34,7 +36,8 @@
       "parallel-lint src",
       "phpunit",
       "phpcpd src",
-      "phpmd src text phpmd.xml"
+      "phpmd src text phpmd.xml",
+      "phpcs"
     ]
   }
 }
