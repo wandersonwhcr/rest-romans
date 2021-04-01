@@ -2,9 +2,9 @@ version: "3"
 
 services:
 
-  proxy:
+  traefik:
     image: "traefik:2.4"
-    container_name: "proxy"
+    container_name: "romans_traefik"
     ports:
     - "80:80"
     volumes:
@@ -15,7 +15,7 @@ services:
     - "--providers.docker.exposedbydefault=false"
     - "--providers.docker=true"
 
-  httpd:
+  nginx:
     image: "nginx:1.19"
     labels:
     - "traefik.enable=true"
