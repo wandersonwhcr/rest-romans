@@ -14,3 +14,12 @@ services:
     - "--log.level=DEBUG"
     - "--providers.docker.exposedbydefault=false"
     - "--providers.docker=true"
+
+  httpd:
+    image: "nginx:1.19"
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.default.rule=Host(`${ROMANS_HOSTNAME:-localhost}`)"
+    - "traefik.port=80"
+    ports:
+    - "80"
