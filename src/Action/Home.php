@@ -16,6 +16,11 @@ class Home
     {
         unset($request, $args);
 
-        return $response;
+        $response->getBody()->write(json_encode([
+            'name' => 'romans',
+        ]));
+
+        return $response->withStatus(200)
+            ->withHeader('Content-Type', 'application/json');
     }
 }
