@@ -17,11 +17,11 @@ class Arabics
      */
     public function __invoke(RequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        unset($request, $args);
+        unset($request);
 
         $response->getBody()->write(json_encode([
-            'arabic' => '1999',
-            'roman'  => $this->getIntToRomanFilter()->filter(1999),
+            'arabic' => $args['value'],
+            'roman'  => $this->getIntToRomanFilter()->filter((int) $args['value']),
         ]));
 
         return $response->withStatus(200)
