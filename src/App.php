@@ -17,5 +17,6 @@ class App extends BaseApp
 
         $this->get('/', Action\Home::class);
         $this->get('/v1/arabics/{value}', Action\Arabics::class);
+        $this->get('/v1/romans/{value}', Action\Romans::class);
     }
 }

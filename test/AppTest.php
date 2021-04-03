@@ -49,6 +49,24 @@ class AppTest extends TestCase
         $this->assertSame('MCMXCIX', $content->roman);
     }
 
+    public function testRomans(): void
+    {
+        $request  = $this->buildRequest('GET', '/v1/romans/MCMXCIX');
+        $response = $this->app->handle($request);
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertContains('application/json', $response->getHeader('Content-Type'));
+        $this->assertCount(1, $response->getHeader('Content-Type'));
+
+        $content = json_decode((string) $response->getBody());
+
+        $this->assertObjectHasAttribute('roman', $content);
+        $this->assertSame('MCMXCIX', $content->roman);
+
+        $this->assertObjectHasAttribute('arabic', $content);
+        $this->assertSame('1999', $content->arabic);
+    }
+
     /**
      * @param array<string,string> $serverParams
      */
