@@ -48,4 +48,18 @@ class RomansTest extends TestCase
 
         $this->assertObjectHasAttribute('message', $content);
     }
+
+    public function testInvalid(): void
+    {
+        $request  = $this->buildRequest('GET', '/v1/romans/Z');
+        $response = $this->app->handle($request);
+
+        $this->assertEquals(422, $response->getStatusCode());
+        $this->assertContains('application/json', $response->getHeader('Content-Type'));
+        $this->assertCount(1, $response->getHeader('Content-Type'));
+
+        $content = json_decode((string) $response->getBody());
+
+        $this->assertObjectHasAttribute('message', $content);
+    }
 }
