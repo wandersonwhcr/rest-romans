@@ -6,7 +6,6 @@ namespace Rest\Romans\Action;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as RequestInterface;
-use Romans\Filter\Exception as FilterException;
 use Romans\Filter\IntToRoman as IntToRomanFilter;
 
 class Arabics
@@ -20,23 +19,21 @@ class Arabics
     {
         unset($request);
 
-        try {
-            $status  = 200;
-            $content = [
-                'arabic' => $args['value'],
-                'roman'  => $this->getIntToRomanFilter()->filter((int) $args['value']),
-            ];
-        } catch (FilterException $e) {
-            $status  = 422;
-            $content = [
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
+        if (! ctype_digit($args['value'])) {
+            $response->getBody()->write(json_encode([
+                'message' => sprintf('Invalid arabic: "%s"', $args['value']),
+            ]));
+
+            return $response->withStatus(422)
+                ->withHeader('Content-Type', 'application/json');
         }
 
-        $response->getBody()->write(json_encode($content));
+        $response->getBody()->write(json_encode([
+            'arabic' => $args['value'],
+            'roman'  => $this->getIntToRomanFilter()->filter((int) $args['value']),
+        ]));
 
-        return $response->withStatus($status)
+        return $response->withStatus(200)
             ->withHeader('Content-Type', 'application/json');
     }
 

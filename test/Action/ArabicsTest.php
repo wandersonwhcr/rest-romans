@@ -46,7 +46,6 @@ class ArabicsTest extends TestCase
 
         $content = json_decode((string) $response->getBody());
 
-        $this->assertObjectHasAttribute('code', $content);
         $this->assertObjectHasAttribute('message', $content);
     }
 
@@ -61,7 +60,6 @@ class ArabicsTest extends TestCase
 
         $content = json_decode((string) $response->getBody());
 
-        $this->assertObjectHasAttribute('code', $content);
         $this->assertObjectHasAttribute('message', $content);
     }
 }
