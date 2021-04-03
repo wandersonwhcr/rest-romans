@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbbab343f019f0a7c99adb6dc78406ae",
+    "content-hash": "954bdac744dce9de96aea0da41aa9cab",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -753,6 +753,57 @@
                 }
             ],
             "time": "2021-01-07T16:49:33+00:00"
+        },
+        {
+            "name": "wandersonwhcr/romans",
+            "version": "v1.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wandersonwhcr/romans.git",
+                "reference": "df4c266c43771b592f94e86150e7e35be04857ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wandersonwhcr/romans/zipball/df4c266c43771b592f94e86150e7e35be04857ef",
+                "reference": "df4c266c43771b592f94e86150e7e35be04857ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "1.2.*",
+                "phpmd/phpmd": "2.9.*",
+                "phpunit/phpunit": "9.5.*",
+                "sebastian/phpcpd": "6.0.3",
+                "slevomat/coding-standard": "^6.4",
+                "squizlabs/php_codesniffer": "3.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Romans\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Simple PHP Roman Numerals Library",
+            "keywords": [
+                "converter",
+                "filter",
+                "format",
+                "roman",
+                "roman-number",
+                "roman-numeral",
+                "validator"
+            ],
+            "support": {
+                "issues": "https://github.com/wandersonwhcr/romans/issues",
+                "source": "https://github.com/wandersonwhcr/romans/tree/v1.3.9"
+            },
+            "time": "2021-04-01T16:58:35+00:00"
         }
     ],
     "packages-dev": [
