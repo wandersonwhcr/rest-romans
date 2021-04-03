@@ -4,6 +4,7 @@
   "type": "project",
   "license": "MIT",
   "require": {
+    "php": ">=7.4",
     "psr/http-message": "1.0.*",
     "slim/psr7": "1.3.*",
     "slim/slim": "4.7.*",
