@@ -132,5 +132,5 @@ docker-compose run php-fpm composer test
 
 ## License
 
-This package is opensource and available under MIT license described in
+This project is opensource and available under MIT license described in
 [LICENSE](https://github.com/wandersonwhcr/rest-romans/blob/main/LICENSE).
