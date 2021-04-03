@@ -34,4 +34,18 @@ class RomansTest extends TestCase
         $this->assertObjectHasAttribute('arabic', $content);
         $this->assertSame('1999', $content->arabic);
     }
+
+    public function testInteger(): void
+    {
+        $request  = $this->buildRequest('GET', '/v1/romans/1999');
+        $response = $this->app->handle($request);
+
+        $this->assertEquals(422, $response->getStatusCode());
+        $this->assertContains('application/json', $response->getHeader('Content-Type'));
+        $this->assertCount(1, $response->getHeader('Content-Type'));
+
+        $content = json_decode((string) $response->getBody());
+
+        $this->assertObjectHasAttribute('message', $content);
+    }
 }

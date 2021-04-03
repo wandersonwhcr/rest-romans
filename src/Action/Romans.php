@@ -7,6 +7,8 @@ namespace Rest\Romans\Action;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as RequestInterface;
 use Romans\Filter\RomanToInt as RomanToIntFilter;
+use Romans\Lexer\Exception as LexerException;
+use Romans\Parser\Exception as ParserException;
 
 class Romans
 {
@@ -19,12 +21,22 @@ class Romans
     {
         unset($request);
 
-        $response->getBody()->write(json_encode([
-            'arabic' => (string) $this->getRomanToIntFilter()->filter($args['value']),
-            'roman'  => $args['value'],
-        ]));
+        try {
+            $status  = 200;
+            $content = [
+                'arabic' => (string) $this->getRomanToIntFilter()->filter($args['value']),
+                'roman'  => $args['value'],
+            ];
+        } catch (LexerException|ParserException $e) {
+            $status  = 422;
+            $content = [
+                'message' => $e->getMessage(),
+            ];
+        }
 
-        return $response->withStatus(200)
+        $response->getBody()->write(json_encode($content));
+
+        return $response->withStatus($status)
             ->withHeader('Content-Type', 'application/json');
     }
 
