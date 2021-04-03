@@ -52,6 +52,36 @@ docker run \
     nginx
 ```
 
+### Docker Compose
+
+Also, you can use `docker-compose` to execute this service. Please, remember to
+create `default.conf.template` file from the previous section.
+
+```yml
+version: "3"
+
+services:
+
+  romans:
+    image: "wandersonwhcr/romans"
+    networks:
+    - romans
+    ports:
+    - "9000"
+
+  romans-http:
+    image: "nginx"
+    networks:
+    - romans
+    ports:
+    - "80:80"
+    volumes:
+    - "./default.conf.template:/etc/nginx/templates/default.conf.template"
+
+networks:
+  romans:
+```
+
 ## Usage
 
 As a RESTful service, it makes available two endpoints for convertions. Next
