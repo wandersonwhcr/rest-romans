@@ -39,6 +39,12 @@ class AppTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('application/json', $response->getHeader('Content-Type'));
         $this->assertCount(1, $response->getHeader('Content-Type'));
+
+        $content = json_decode((string) $response->getBody());
+
+        $this->assertObjectHasAttribute('arabic', $content);
+        $this->assertIsString($content->arabic);
+        $this->assertEquals('1999', $content->arabic);
     }
 
     /**
