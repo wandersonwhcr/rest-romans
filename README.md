@@ -51,3 +51,23 @@ docker run \
     --volume "`pwd`/default.conf.template:/etc/nginx/templates/default.conf.template" \
     nginx
 ```
+
+## Usage
+
+As a RESTful service, it makes available two endpoints for convertions. Next
+example uses `curl` to send a request to convert `1999` from Arabic numeral to
+Roman.
+
+```sh
+curl http://localhost/v1/arabics/1999 \
+    --include \
+    --request GET \
+    --header 'Accept: application/json'
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"arabic":"1999","roman":"MCMXCIX"}
+```
