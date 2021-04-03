@@ -34,4 +34,19 @@ class ArabicsTest extends TestCase
         $this->assertObjectHasAttribute('roman', $content);
         $this->assertSame('MCMXCIX', $content->roman);
     }
+
+    public function testNegative(): void
+    {
+        $request  = $this->buildRequest('GET', '/v1/arabics/-1');
+        $response = $this->app->handle($request);
+
+        $this->assertEquals(422, $response->getStatusCode());
+        $this->assertContains('application/json', $response->getHeader('Content-Type'));
+        $this->assertCount(1, $response->getHeader('Content-Type'));
+
+        $content = json_decode((string) $response->getBody());
+
+        $this->assertObjectHasAttribute('code', $content);
+        $this->assertObjectHasAttribute('message', $content);
+    }
 }
