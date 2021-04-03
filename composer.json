@@ -3,6 +3,17 @@
   "description": "The Most Unuseful Web Service to Convert Roman Numerals to Arabic and Vice Versa",
   "type": "project",
   "license": "MIT",
+  "keywords": [
+    "rest",
+    "rest-service",
+    "roman",
+    "roman-number",
+    "roman-numeral",
+    "converter",
+    "filter",
+    "format",
+    "validator"
+  ],
   "require": {
     "php": ">=7.4",
     "psr/http-message": "1.0.*",
