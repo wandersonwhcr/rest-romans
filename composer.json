@@ -24,7 +24,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Rest\\Romans\\": "test"
+      "RestTest\\Romans\\": "test"
     }
   },
   "config": {

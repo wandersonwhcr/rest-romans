@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rest\Romans;
+namespace RestTest\Romans;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
