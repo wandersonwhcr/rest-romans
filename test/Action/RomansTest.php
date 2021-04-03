@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace RestTest\Romans;
+namespace RestTest\Romans\Action;
 
 use PHPUnit\Framework\TestCase;
 use Rest\Romans\App;
+use RestTest\Romans\RequestTrait;
 
-class AppTest extends TestCase
+class RomansTest extends TestCase
 {
     use RequestTrait;
 
@@ -16,9 +17,9 @@ class AppTest extends TestCase
         $this->app = new App();
     }
 
-    public function testHome(): void
+    public function testValue(): void
     {
-        $request  = $this->buildRequest('GET', '/');
+        $request  = $this->buildRequest('GET', '/v1/romans/MCMXCIX');
         $response = $this->app->handle($request);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -27,7 +28,10 @@ class AppTest extends TestCase
 
         $content = json_decode((string) $response->getBody());
 
-        $this->assertObjectHasAttribute('name', $content);
-        $this->assertSame('romans', $content->name);
+        $this->assertObjectHasAttribute('roman', $content);
+        $this->assertSame('MCMXCIX', $content->roman);
+
+        $this->assertObjectHasAttribute('arabic', $content);
+        $this->assertSame('1999', $content->arabic);
     }
 }
