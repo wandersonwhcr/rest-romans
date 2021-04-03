@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 use Rest\Romans\Action;
-use Slim\Factory\AppFactory;
+use Slim\App;
+use Slim\Psr7\Factory\ResponseFactory;
 
-$app = AppFactory::create();
+$app = new App(new ResponseFactory());
 
 $app->addErrorMiddleware(true, true, true);
 
