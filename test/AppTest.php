@@ -18,8 +18,7 @@ class AppTest extends TestCase
 
     public function testHome(): void
     {
-        $request = $this->buildRequest('GET', '/');
-
+        $request  = $this->buildRequest('GET', '/');
         $response = $this->app->handle($request);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -30,6 +29,14 @@ class AppTest extends TestCase
 
         $this->assertObjectHasAttribute('name', $content);
         $this->assertSame('romans', $content->name);
+    }
+
+    public function testArabics(): void
+    {
+        $request  = $this->buildRequest('GET', '/arabics/1999');
+        $response = $this->app->handle($request);
+
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     /**
