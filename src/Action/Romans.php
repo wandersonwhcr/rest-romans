@@ -30,6 +30,6 @@ class Romans
 
     private function getRomanToIntFilter(): RomanToIntFilter
     {
-        return $this->romanToIntFilter ?? new RomanToIntFilter();
+        return $this->romanToIntFilter ??= new RomanToIntFilter();
     }
 }

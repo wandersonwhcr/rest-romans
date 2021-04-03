@@ -30,6 +30,6 @@ class Arabics
 
     private function getIntToRomanFilter(): IntToRomanFilter
     {
-        return $this->intToRomanFilter ?? new IntToRomanFilter();
+        return $this->intToRomanFilter ??= new IntToRomanFilter();
     }
 }
