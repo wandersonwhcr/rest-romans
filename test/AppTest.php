@@ -33,7 +33,7 @@ class AppTest extends TestCase
 
     public function testArabics(): void
     {
-        $request  = $this->buildRequest('GET', '/arabics/1999');
+        $request  = $this->buildRequest('GET', '/v1/arabics/1999');
         $response = $this->app->handle($request);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -43,8 +43,10 @@ class AppTest extends TestCase
         $content = json_decode((string) $response->getBody());
 
         $this->assertObjectHasAttribute('arabic', $content);
-        $this->assertIsString($content->arabic);
-        $this->assertEquals('1999', $content->arabic);
+        $this->assertSame('1999', $content->arabic);
+
+        $this->assertObjectHasAttribute('roman', $content);
+        $this->assertSame('MCMXCIX', $content->roman);
     }
 
     /**

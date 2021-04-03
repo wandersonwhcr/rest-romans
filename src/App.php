@@ -16,6 +16,6 @@ class App extends BaseApp
         $this->addErrorMiddleware(true, true, true);
 
         $this->get('/', Action\Home::class);
-        $this->get('/arabics/{value}', Action\Arabics::class);
+        $this->get('/v1/arabics/{value}', Action\Arabics::class);
     }
 }

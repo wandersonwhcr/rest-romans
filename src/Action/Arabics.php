@@ -16,7 +16,7 @@ class Arabics
     {
         unset($request, $args);
 
-        $response->getBody()->write('{"arabic":"1999"}');
+        $response->getBody()->write('{"arabic":"1999","roman":"MCMXCIX"}');
 
         return $response->withStatus(200)
             ->withHeader('Content-Type', 'application/json');
