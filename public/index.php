@@ -2,6 +2,8 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = require __DIR__ . '/../app.php';
+use Rest\Romans\App;
+
+$app = new App();
 
 $app->run();

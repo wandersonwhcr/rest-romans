@@ -6,13 +6,14 @@ namespace Rest\Romans;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
+use Rest\Romans\App;
 use Slim\Psr7\Factory\ServerRequestFactory;
 
 class AppTest extends TestCase
 {
     protected function setUp(): void
     {
-        $this->app = require __DIR__ . '/../app.php';
+        $this->app = new App();
     }
 
     public function testHome(): void
