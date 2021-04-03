@@ -1,0 +1,13 @@
+.dockerignore
+.env
+.git
+.gitignore
+.phpunit.result.cache
+/vendor
+docker-compose
+docker-compose.yml
+Dockerfile
+phpcs.xml.dist
+phpmd.xml
+phpunit.xml.dist
+test
