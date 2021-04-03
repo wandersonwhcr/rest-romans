@@ -88,3 +88,14 @@ Content-Type: application/json
 
 {"arabic":"1999","roman":"MCMXCIX"}
 ```
+
+## Development
+
+You can use Docker Compose to build images from this project and run a container
+to develop and test this package.
+
+```bash
+docker-compose build
+docker-compose run php-fpm composer install
+docker-compose run php-fpm composer test
+```
