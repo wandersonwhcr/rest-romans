@@ -71,3 +71,20 @@ Content-Type: application/json
 
 {"arabic":"1999","roman":"MCMXCIX"}
 ```
+
+There is another endpoint to convert from Roman numeral to Arabic as next
+example.
+
+```sh
+curl http://localhost/v1/romans/MCMXCIX \
+    --include \
+    --request GET \
+    --header 'Accept: application/json'
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"arabic":"1999","roman":"MCMXCIX"}
+```
