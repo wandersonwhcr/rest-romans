@@ -16,6 +16,7 @@ class Arabics
     {
         unset($request, $args);
 
-        return $response->withStatus(200);
+        return $response->withStatus(200)
+            ->withHeader('Content-Type', 'application/json');
     }
 }
